@@ -3,6 +3,8 @@
 #include <stdio.h>
 #include <string.h>
 
+void buildPunnetSquare(char gene1[], char gene2[], int length);
+
 // Main function 
 int main(int argc, string argv[])
 {
@@ -27,6 +29,8 @@ int main(int argc, string argv[])
     // Set loop 
     while (true)
     {
+        string parent1 = get_string("Enter alleles for parent 1 (e.g., 'Aa'): ");
+        string parent2 = get_string("Enter alleles for parent 2 (e.g., 'Aa'): ");
         // Print out a welcome message for the program
         printf("Welcome to the allele calculator and punnet Square generator\n");
 
@@ -70,3 +74,31 @@ int main(int argc, string argv[])
 
     }
 }
+
+//  Make a function to display a punnet square
+void buildPunnetSquare(char gene1[], char gene2[], int length)
+{
+    // Set variable for the punnet square
+    int punnetSquare = strlen(gene1);
+
+    // Make the boarder 
+    printf("+");
+    for (int i = 0; i < punnetSquare; i++)
+    {
+        printf("---+");
+    }
+    printf("\n");
+
+    // Create the rows of the punnet square
+    for (int i = 0; i < punnetSquare; i++)
+    {
+        // Create the left boarder of the punnet square
+        printf("| ");
+        for (int j = 0; j < punnetSquare; j++)
+        {
+            printf("%c%c | ", gene1[i], gene2[j]);
+        }
+        printf("\n");
+
+    }
+}   
