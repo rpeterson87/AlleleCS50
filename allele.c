@@ -1,29 +1,30 @@
 // Include files 
 #include <cs50.h>
-#include <stdio.h>
-#include <string.h>
 #include <ctype.h>
+#include <string.h>
+#include <stdio.h>
 
 void buildPunnetSquare(char gene1[], char gene2[], int length);
+char checkLetters(string gene, int length);
 
 // Main function 
 int main(int argc, string argv[])
 {
-    string gene1, gene2;
-    int length;
 
-
-    
     // Set loop 
     while (true)
     {
+        string gene1, gene2;
+        int length;
+
         // Print out a welcome message for the program
         printf("Welcome to the allele calculator and punnet Square generator\n");
+        
         // Argument count check
         if (argc != 3)
         {
             printf("Usage: ./allele [gene1] [gene2]\n");
-            return 1;
+            break;
         }
 
         // Set the variables for the genes
@@ -31,42 +32,32 @@ int main(int argc, string argv[])
         gene2 = argv[2];
         length = strlen(gene1);
 
-        // // Set array for exit, quit and q
-        // string quit[] = {"quit", "exit", "q"};
-
-        // // Print usage message
-        // printf("Please enter the allele data (Or type exit, quit or q to quit)\n");
-
-        // Print the punnet square
-        buildPunnetSquare(gene1, gene2, length); 
-        
-        // // Run Check incase the user wants to quit
-        // if (strcmp(gene1, quit[0]) == 0 || strcmp(gene1, quit[1]) || strcmp(gene1, quit[2]) == 0)
-        // {
-        //     printf("Thank you for checking out my program\n");
-        //     return 0;
-        //     break;
-        // }
-
         // Make sure they enter the same length of characters
         if (strlen(gene1) != strlen(gene2))
         {
             printf("Please ensure that both genes are the same length\n");
-            return 1;
-            continue;
+            break;
         }
-
-        // Use this for the check letters function
-        // printf("Please ensure that you only enter the letters A, B, C or D\n");
 
         // Make sure that the the length is no more the 4 characters
         if (length > 4)
         {
             printf("Please ensure that both genes are no more then 4 characters\n");
-            return 1;
-            continue;
+            break;
         }
+        
+        // Function to check that the user only entered letters
+        if (checkLetters(gene1, length) == 0 || checkLetters(gene2, length) == 0)
+        {
+            printf("Please ensure that you only enter the letters A, B, C or D\n");
+            break;
+        }
+
+        // Create the punnet square
+        buildPunnetSquare(gene1, gene2, length); 
+        break;
     }
+    return 0;
 }
 
 //  Make a function to display a punnet square
@@ -107,12 +98,13 @@ void buildPunnetSquare(char gene1[], char gene2[], int length)
 }   
 
 // Make a function to calculate the alleles
-
-
+int calculateAlleles()
+{
+    return 0;
+}
 
 // Make a function to check the that the user only entered letters
-
-int checkLetters(string gene, int length)
+char checkLetters(string gene, int length)
 {
     // Loop to check the letters
     for (int i = 0; i < length; i++)
@@ -131,3 +123,23 @@ int checkLetters(string gene, int length)
     }
     return 1;
 }
+
+
+
+
+
+
+// // Set array for exit, quit and q
+// string quit[] = {"quit", "exit", "q"};
+
+// // Print usage message
+// printf("Please enter the allele data (Or type exit, quit or q to quit)\n");
+
+// Print the punnet square
+// // Run Check incase the user wants to quit
+// if (strcmp(gene1, quit[0]) == 0 || strcmp(gene1, quit[1]) || strcmp(gene1, quit[2]) == 0)
+// {
+//     printf("Thank you for checking out my program\n");
+//     return 0;
+//     break;
+// }
