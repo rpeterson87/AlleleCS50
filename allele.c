@@ -65,20 +65,29 @@ void buildPunnetSquare(char gene1[], char gene2[], int length)
 {
     // Set variable for the punnet square
     int punnetSquare = strlen(gene1);
-
+    
+    // Put the genes on the top of the punnet square
+    printf("  ");
+    for (int i = 0; i < punnetSquare; i++)
+    {
+        printf("  %c  ", gene2[i]);
+    }
+    printf("\n");
+    
     // Make top the boarder 
-    printf("+");
+    printf("  +");
     for (int i = 0; i < punnetSquare; i++)
     {
         printf("----+");
     }
     printf("\n");
 
+
     // Create the rows of the punnet square
     for (int i = 0; i < punnetSquare; i++)
     {
         // Create the left boarder of the punnet square
-        printf("| ");
+        printf("%c | ", gene1[i]);
         for (int j = 0; j < punnetSquare; j++)
         {
             printf("%c%c | ", gene1[i], gene2[j]);
@@ -86,15 +95,13 @@ void buildPunnetSquare(char gene1[], char gene2[], int length)
         printf("\n");
 
         // Make the middle and bottom boarder for the punnet square 
-        printf("+");
+        printf("  +");
         for (int k = 0; k < punnetSquare; k++)
         {
             printf("----+");
         }
         printf("\n");
-
     }
-
 }   
 
 // Make a function to calculate the alleles
