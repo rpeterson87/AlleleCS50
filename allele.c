@@ -37,6 +37,7 @@ int main(int argc, string argv[])
         // Print usage message
         printf("Please enter the allele data (Or type exit, quit or q to quit)\n");
         
+        
         // Run Check incase the user wants to quit
         if (strcmp(gene1, quit[0]) == 0 || strcmp(gene1, quit[1]) || strcmp(gene1, quit[2]) == 0)
         {
@@ -72,6 +73,8 @@ int main(int argc, string argv[])
             }
         }
 
+
+
     }
 }
 
@@ -101,4 +104,12 @@ void buildPunnetSquare(char gene1[], char gene2[], int length)
         printf("\n");
 
     }
+
+    // Set bottom Border 
+    printf("+");
+    for (int i = 0; i < punnetSquare; i++)
+    {
+        printf("---+");
+    }
+    printf("\n");
 }   
