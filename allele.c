@@ -8,12 +8,16 @@ void buildPunnetSquare(char gene1[], char gene2[], int length);
 // Main function 
 int main(int argc, string argv[])
 {
+    string gene1, gene2;
+    int length;
+
+
+    
     // Set loop 
     while (true)
     {
-        string gene1, gene2;
-        int length;
-
+        // Print out a welcome message for the program
+        printf("Welcome to the allele calculator and punnet Square generator\n");
         // Argument count check
         if (argc != 3)
         {
@@ -26,24 +30,22 @@ int main(int argc, string argv[])
         gene2 = argv[2];
         length = strlen(gene1);
 
-        // Set array for exit, quit and q
-        string quit[] = {"quit", "exit", "q"};
-        // Print out a welcome message for the program
-        printf("Welcome to the allele calculator and punnet Square generator\n");
+        // // Set array for exit, quit and q
+        // string quit[] = {"quit", "exit", "q"};
 
-        // Print usage message
-        printf("Please enter the allele data (Or type exit, quit or q to quit)\n");
+        // // Print usage message
+        // printf("Please enter the allele data (Or type exit, quit or q to quit)\n");
 
         // Print the punnet square
         buildPunnetSquare(gene1, gene2, length); 
         
-        // Run Check incase the user wants to quit
-        if (strcmp(gene1, quit[0]) == 0 || strcmp(gene1, quit[1]) || strcmp(gene1, quit[2]) == 0)
-        {
-            printf("Thank you for checking out my program\n");
-            return 0;
-            break;
-        }
+        // // Run Check incase the user wants to quit
+        // if (strcmp(gene1, quit[0]) == 0 || strcmp(gene1, quit[1]) || strcmp(gene1, quit[2]) == 0)
+        // {
+        //     printf("Thank you for checking out my program\n");
+        //     return 0;
+        //     break;
+        // }
 
         // Make sure they enter the same length of characters
         if (strlen(gene1) != strlen(gene2))
@@ -71,9 +73,6 @@ int main(int argc, string argv[])
                 continue;
             }
         }
-
-
-
     }
 }
 
