@@ -2,6 +2,7 @@
 #include <cs50.h>
 #include <stdio.h>
 #include <string.h>
+#include <ctype.h>
 
 void buildPunnetSquare(char gene1[], char gene2[], int length);
 
@@ -55,23 +56,15 @@ int main(int argc, string argv[])
             continue;
         }
 
+        // Use this for the check letters function
+        // printf("Please ensure that you only enter the letters A, B, C or D\n");
+
         // Make sure that the the length is no more the 4 characters
         if (length > 4)
         {
             printf("Please ensure that both genes are no more then 4 characters\n");
             return 1;
             continue;
-        }
-
-        // ensure that the user only enters the letters.
-        for (int i = 0; i < length; i++)
-        {
-            if (gene1[i] != 'A' && gene1[i] != 'a' && gene1[i] != 'B' && gene1[i] != 'b' && gene1[i] != 'C' && gene1[i] != 'c' && gene1[i] != 'D' && gene1[i] != 'd')
-            {
-                printf("Please ensure that you only enter the letters A, B, C or D\n");
-                return 1;
-                continue;
-            }
         }
     }
 }
@@ -112,3 +105,29 @@ void buildPunnetSquare(char gene1[], char gene2[], int length)
     }
 
 }   
+
+// Make a function to calculate the alleles
+
+
+
+// Make a function to check the that the user only entered letters
+
+int checkLetters(string gene, int length)
+{
+    // Loop to check the letters
+    for (int i = 0; i < length; i++)
+    {
+        if (toupper(gene[i]) != 'A' && 
+            toupper(gene[i]) != 'a' && 
+            toupper(gene[i]) != 'B' && 
+            toupper(gene[i]) != 'b' && 
+            toupper(gene[i]) != 'C' && 
+            toupper(gene[i]) != 'c' && 
+            toupper(gene[i]) != 'D' && 
+            toupper(gene[i]) != 'd')
+        {
+            return 0;
+        }
+    }
+    return 1;
+}
