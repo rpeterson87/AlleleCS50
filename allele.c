@@ -87,11 +87,11 @@ void buildPunnetSquare(char gene1[], char gene2[], int length)
     // Set variable for the punnet square
     int punnetSquare = strlen(gene1);
 
-    // Make the boarder 
+    // Make top the boarder 
     printf("+");
     for (int i = 0; i < punnetSquare; i++)
     {
-        printf("---+");
+        printf("----+");
     }
     printf("\n");
 
@@ -106,13 +106,14 @@ void buildPunnetSquare(char gene1[], char gene2[], int length)
         }
         printf("\n");
 
+        // Make the middle and bottom boarder for the punnet square 
+        printf("+");
+        for (int k = 0; k < punnetSquare; k++)
+        {
+            printf("----+");
+        }
+        printf("\n");
+
     }
 
-    // Set bottom Border 
-    printf("+");
-    for (int i = 0; i < punnetSquare; i++)
-    {
-        printf("---+");
-    }
-    printf("\n");
 }   
