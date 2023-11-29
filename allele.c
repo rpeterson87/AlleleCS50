@@ -67,15 +67,15 @@ void buildPunnetSquare(char gene1[], char gene2[], int length)
     int punnetSquare = strlen(gene1);
     
     // Put the genes on the top of the punnet square
-    printf("  ");
+    printf("   ");
     for (int i = 0; i < punnetSquare; i++)
     {
-        printf("  %c  ", gene2[i]);
+        printf("  %c%c ", gene2[i], gene2[i]);
     }
     printf("\n");
     
     // Make top the boarder 
-    printf("  +");
+    printf("   +");
     for (int i = 0; i < punnetSquare; i++)
     {
         printf("----+");
@@ -87,7 +87,7 @@ void buildPunnetSquare(char gene1[], char gene2[], int length)
     for (int i = 0; i < punnetSquare; i++)
     {
         // Create the left boarder of the punnet square
-        printf("%c | ", gene1[i]);
+        printf("%c%c | ", gene1[i], gene1[i]);
         for (int j = 0; j < punnetSquare; j++)
         {
             printf("%c%c | ", gene1[i], gene2[j]);
@@ -95,7 +95,7 @@ void buildPunnetSquare(char gene1[], char gene2[], int length)
         printf("\n");
 
         // Make the middle and bottom boarder for the punnet square 
-        printf("  +");
+        printf("   +");
         for (int k = 0; k < punnetSquare; k++)
         {
             printf("----+");
@@ -117,13 +117,9 @@ char checkLetters(string gene, int length)
     for (int i = 0; i < length; i++)
     {
         if (toupper(gene[i]) != 'A' && 
-            toupper(gene[i]) != 'a' && 
             toupper(gene[i]) != 'B' && 
-            toupper(gene[i]) != 'b' && 
             toupper(gene[i]) != 'C' && 
-            toupper(gene[i]) != 'c' && 
-            toupper(gene[i]) != 'D' && 
-            toupper(gene[i]) != 'd')
+            toupper(gene[i]) != 'D')
         {
             return 0;
         }
