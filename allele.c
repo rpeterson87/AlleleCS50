@@ -3,14 +3,16 @@
 #include <ctype.h>
 #include <string.h>
 #include <stdio.h>
+#include <stdlib.h>
 
-void buildPunnetSquare(char gene1[], char gene2[], int length);
+
+char* buildPunnetSquare(char gene1[], char gene2[], int length);
 char checkLetters(string gene, int length);
+void convertToCSV(char*  buildPunnetSquare);
 
 // Main function 
 int main(int argc, string argv[])
 {
-
     // Set loop 
     while (true)
     {
@@ -54,15 +56,30 @@ int main(int argc, string argv[])
         }
 
         // Create the punnet square
-        buildPunnetSquare(gene1, gene2, length); 
-        break;
+        char* punnetSquare = buildPunnetSquare(gene1, gene2, length);
+        if (punnetSquare != NULL)
+        {
+            convertToCSV(punnetSquare);
+            free(punnetSquare);
+            break;
+        }
     }
     return 0;
 }
 
 //  Make a function to display a punnet square
-void buildPunnetSquare(char gene1[], char gene2[], int length)
+char* buildPunnetSquare(char gene1[], char gene2[], int length)
 {    
+    // Allocate memory for the punnet square string
+    char *buildPunnetSquare = malloc(500 * sizeof(char));
+
+    // Memory check
+    if (buildPunnetSquare == NULL)
+    {
+        printf("Error allocating memory\n");
+        return NULL;
+    }
+
     // set gene string has for 2 Alleles
     int allelesTwo = 2;
 
@@ -126,12 +143,31 @@ void buildPunnetSquare(char gene1[], char gene2[], int length)
             printf("  +----+----+----+----+\n");
         }
     }
+    return buildPunnetSquare;
 }   
 
-// Make a function to calculate the allelesTwo
-void calculatealleles()
+// Make a function to convert the Punnett square to a CSV file
+void convertToCSV(char*  buildPunnetSquareString)
 {
-    return;
+    // Create the CSV file
+    FILE *csv;
+
+    // Open the CSV file
+    csv = fopen("punnetsquare.csv", "w");
+
+    // Check if the file is empty
+    if (csv == NULL)
+    {
+        printf("Error opening file\n");
+        return;
+    }
+
+    // Write the Punnett square to the CSV file
+    fprintf(csv, "%s", buildPunnetSquareString);
+    
+    // Close the CSV file
+    fclose(csv);
+
 }
 
 // Make a function to check the that the user only entered letters
