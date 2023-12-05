@@ -1,6 +1,5 @@
-     A    a  
-  +----+----+
-A | AA | Aa | 
-  +----+----+
-a | aA | aa | 
-  +----+----+
+   ,  A,    a,    B,    b,  
+A,  AA,  Aa,  AB,  Ab,  
+a,  aA,  aa,  aB,  ab,  
+B,  BA,  Ba,  BB,  Bb,  
+b,  bA,  ba,  bB,  bb,  

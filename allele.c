@@ -92,47 +92,48 @@ char* buildPunnetSquare(char gene1[], char gene2[], int length)
     // Print the genes at the top of the Punnett square
     if (length == allelesTwo && length == allelesTwo)
     {
-        position += sprintf(buildPunnetSquare + position, "   ");
+        position += sprintf(buildPunnetSquare + position, "   ,");
         printf("   ");
         for (int i = 0; i < allelesTwo; i++) 
         {
-            position += sprintf(buildPunnetSquare + position, "  %c  ", gene2[i]);
+            position += sprintf(buildPunnetSquare + position, "  %c,  ", gene2[i]);
             printf("  %c  ", gene2[i]);
         }
         position += sprintf(buildPunnetSquare + position, "\n");
         printf("\n");
 
         // Print the top border
-        position += sprintf(buildPunnetSquare + position, "  +----+----+\n");
         printf("  +----+----+\n");
 
         // Create the rows of the Punnett square
         for (int i = 0; i < allelesTwo; i++) 
         {
             // Print the left side of the Punnett square
-            position += sprintf(buildPunnetSquare + position, "%c | ", gene1[i]);
+            position += sprintf(buildPunnetSquare + position, "%c,  ", gene1[i]);
             printf("%c | ", gene1[i]);
 
             for (int j = 0; j < allelesTwo; j++) 
             {
-                position += sprintf(buildPunnetSquare + position, "%c%c | ", gene1[i], gene2[j]);
+                position += sprintf(buildPunnetSquare + position, "%c%c,  ", gene1[i], gene2[j]);
                 printf("%c%c | ", gene1[i], gene2[j]);
             }
             position += sprintf(buildPunnetSquare + position, "\n");
             printf("\n");
 
             // Print the middle and bottom border for the Punnett square
-            position += sprintf(buildPunnetSquare + position, "  +----+----+\n");
             printf("  +----+----+\n");
         }
     }
     if (length == allelesFour && length == allelesFour)
     {
+        position += sprintf(buildPunnetSquare + position, "   ,"); 
         printf("   ");
         for (int i = 0; i < allelesFour; i++) 
         {
+            position += sprintf(buildPunnetSquare + position, "  %c,  ", gene2[i]);
             printf("  %c  ", gene2[i]);
         }
+        position += sprintf(buildPunnetSquare + position, "\n");
         printf("\n");
 
         // Print the top border
@@ -142,12 +143,15 @@ char* buildPunnetSquare(char gene1[], char gene2[], int length)
         for (int i = 0; i < allelesFour; i++) 
         {
             // Print the left side of the Punnett square
+            position += sprintf(buildPunnetSquare + position, "%c,  ", gene1[i]);
             printf("%c | ", gene1[i]);
 
             for (int j = 0; j < allelesFour; j++) 
             {
+                position += sprintf(buildPunnetSquare + position, "%c%c,  ", gene1[i], gene2[j]);
                 printf("%c%c | ", gene1[i], gene2[j]);
             }
+            position += sprintf(buildPunnetSquare + position, "\n");
             printf("\n");
 
             // Print the middle and bottom border for the Punnett square
@@ -162,7 +166,7 @@ void convertToCSV(char*  buildPunnetSquareString)
 {
     // Create the CSV file
     FILE *csv;
-    
+
     // Open the CSV file
     csv = fopen("punnetsquare.csv", "w");
 
