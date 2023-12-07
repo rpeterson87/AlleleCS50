@@ -1,7 +1,7 @@
 # AlleleCS50
 This is my final project for CS50
 
-#### Video Demo:  <URL HERE>
+#### Video Demo:  https://youtu.be/BvI-4xY2NMA
 
 #### Description:
 

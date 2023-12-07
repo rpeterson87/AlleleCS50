@@ -122,7 +122,7 @@ char* buildPunnetSquare(char gene1[], char gene2[], int length)
 
             // Print the middle and bottom border for the Punnett square
             printf("  +----+----+\n");
-        }
+        }~~
     }
     if (length == allelesFour && length == allelesFour)
     {
