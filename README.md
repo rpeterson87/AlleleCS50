@@ -28,12 +28,38 @@ or
 ./allele AaBb AaBb
 ```
 
-Additionally, the program generates a CSV file with the data output to stdout, facilitating data manipulation in a more user-friendly format.
+Additionally, the program generates a CSV file with the data output to stdout, facilitating data manipulation in a more user-friendly format like so...
+
+```C
+void convertToCSV(char*  buildPunnetSquareString)
+{
+    // Create the CSV file
+    FILE *csv;
+
+    // Open the CSV file
+    csv = fopen("punnetsquare.csv", "w");
+
+    // Check if the file is empty
+    if (csv == NULL)
+    {
+        printf("Error opening file\n");
+        return;
+    }
+
+    // Write the Punnett square to the CSV file
+    fprintf(csv, "%s", buildPunnetSquareString);
+
+    // Close the CSV file
+    fclose(csv);
+
+}
+
+```
 
 #### Pain/Learning points 
 One of the most challenging aspects of this project was building the 'build Punnet square' function. I must have refactored it a hundred times. Although I believe there's still room for improvement, when I finally realized that all I was missing was a conditional everything came together. Another significant hurdle was figuring out how to output data not only to STDOUT but also to a CSV file. The C manual pages proved invaluable, in assisting me time and again throughout this course. 
 
 #### Future Plans
-I aim to enhance the program's functionality to handle more inputs and calculate the probability of each gene. This would provide insights into the odds of specific breeding outcomes.
+I aim to enhance the program's functionality to handle more inputs and calculate the probability of each gene. This would provide insights into the odds of specific breeding outcomes. I would also like to clean up the code a bit and maybe move some of the repetitive tasks into functions.
 
 
