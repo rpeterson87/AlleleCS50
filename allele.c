@@ -51,7 +51,7 @@ int main(int argc, string argv[])
         // Function to check that the user only entered letters
         if (checkLetters(gene1, length) == 0 || checkLetters(gene2, length) == 0)
         {
-            printf("Please ensure that you only enter the letters A, B, C or D\n");
+            printf("Please ensure that you only enter the letters A, B, C, D, X or Y\n");
             break;
         }
 
@@ -194,30 +194,12 @@ char checkLetters(string gene, int length)
         if (toupper(gene[i]) != 'A' && 
             toupper(gene[i]) != 'B' && 
             toupper(gene[i]) != 'C' && 
-            toupper(gene[i]) != 'D')
+            toupper(gene[i]) != 'D' && 
+            toupper(gene[i]) != 'X' && 
+            toupper(gene[i]) != 'Y')
         {
             return 0;
         }
     }
     return 1;
 }
-
-
-
-
-
-
-// // Set array for exit, quit and q
-// string quit[] = {"quit", "exit", "q"};
-
-// // Print usage message
-// printf("Please enter the allele data (Or type exit, quit or q to quit)\n");
-
-// Print the punnet square
-// // Run Check incase the user wants to quit
-// if (strcmp(gene1, quit[0]) == 0 || strcmp(gene1, quit[1]) || strcmp(gene1, quit[2]) == 0)
-// {
-//     printf("Thank you for checking out my program\n");
-//     return 0;
-//     break;
-// }
